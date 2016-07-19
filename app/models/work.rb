@@ -3,5 +3,6 @@ class Work < ActiveRecord::Base
   belongs_to :inventory
   
   scope :last_5, -> { order(:created_at => :desc).limit(5)}
-  scope :last_n, -> (n){ order(:created_at => :desc).limit(n)}
+  scope :last_5, -> { where(inventory: nil)}
+  scope :inventory_nil, -> { where(inventory: nil)}
 end
