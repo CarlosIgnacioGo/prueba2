@@ -1,0 +1,5 @@
+<ul>
+<% @work.each do |w|%>	
+	<li><%=w.description%> - <%=w.user.try(:name)%> - <%= w.inventory.try(:description)%> - <%= w.inventory.try(:category)%></li>
+<%end%>
+</ul>

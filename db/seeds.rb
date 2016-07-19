@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Inventory.destroy_all
 Work.destroy_all
 
 3.times do
@@ -14,5 +15,13 @@ Work.destroy_all
 end
 
 3.times do
-	Work.create(description: Faker::Lorem.sentence, user_id: 1)
+	Category.create(name: Faker::Name.name)
+end
+
+3.times do
+	Inventory.create(description: Faker::Lorem.sentence, serie: Faker::Number.number(10), size: 1, category_id: Category.first.id)
+end
+
+3.times do
+	Work.create(description: Faker::Lorem.sentence, user_id: User.first.id)
 end
