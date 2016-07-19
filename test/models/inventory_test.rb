@@ -1,12 +1,15 @@
 require 'test_helper'
 
 class InventoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @i = inventories(:one)
+  end
 
-  test "el numero de serie debe ser unico" do    
-  	i = inventories(:one)   
-  	assert i.valid?,"item con serie #{i.serie} esta repetido"
+  test "el numero de serie debe ser unico" do       
+  	assert @i.valid?,"item con serie #{@i.serie} esta repetido"
+  end
+
+  test "el tamaño del rueda debe ser mayor a 0" do    
+  	assert @i.size > 0
   end
 end
